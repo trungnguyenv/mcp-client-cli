@@ -36,13 +36,18 @@ prompt_templates = {
                     - If any tool call is made, append output from tool calls to currentTestCase.txt
                     - Do not retry the step, mark it as failed if the first attempt is failed
                     - Append to currentTestCase.txt test step status, thoughts
-                    - Take browser screenshot using browser_take_screenshot tool, with file name as input, then append full path to the screenshot returning from the browser_take_screenshot tool call to currentTestCase.txt using this format: <Step Description> - Screenshot: <full path>
+                    - Take browser screenshot using browser_take_screenshot tool, with file name as input, the response from tool call will contain the full path to the screenshot on its first lines. For example:
+                        - Ran Playwright code:
+                            ```js
+                            // Screenshot viewport and save it as /tmp/playwright-mcp-output/2025-05-18T14-50-27.096Z/-Users-trungnguyen-Workspace-Vibe-Testing-tmp-step2-type-text.jpg
+                            ...
+                            ```
+                    - Then append full path to the screenshot to currentTestCase.txt using this format: <Step Description> - Screenshot: <full path>
             3. Only run test case once, if it is fail, do not retry, report as failed
             4. After test case is completed:
                 - Create currentTestReport.txt from currentTestCase.txt, remove the absolute path in the screenshots in currentTestReport.txt, only keep file names
                 - Send test result (what written in currentTestReport.txt) to TestRail using add_result tool, append the result ID in currentTestCase.txt
                 - For each screenshots in currentTestCase.txt, upload to the created test result using add_attachment_to_result tool
             5. Clean up currentTestCase.txt and currentTestReport.txt after test case is done
-
     """
 }
