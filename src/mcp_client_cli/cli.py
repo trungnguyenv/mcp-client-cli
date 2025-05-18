@@ -180,7 +180,7 @@ async def load_tools(server_configs: list[McpServerConfig], no_tools: bool, forc
         for server_param in server_configs:
             tg.start_soon(convert_toolkit, server_param)
             
-    langchain_tools.append(save_memory)
+    # langchain_tools.append(save_memory)
     return toolkits, langchain_tools
 
 async def handle_conversation(args: argparse.Namespace, query: HumanMessage, 
