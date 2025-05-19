@@ -53,13 +53,13 @@ Each step has a status: passed, failed, blocked, skipped
      filename: Name of the screenshot file, do NOT include the full path, example: step2-type-text.jpg
     Output:
       text format, containing the full path to the screenshot on its first lines. For example:
-###
+---
 - Ran Playwright code:
                 ```js
                 // Screenshot viewport and save it as /tmp/playwright-mcp-output/2025-05-18T14-50-27.096Z/-Users-trungnguyen-Workspace-Vibe-Testing-tmp-step2-type-text.jpg
                 ...
                 ```
-###
+---
     Notes:
       When using it, only provide the file name, then get the full file path from the response
     """
