@@ -30,6 +30,7 @@ Each step has a status: passed, failed, blocked, skipped
 
 # Workflow for each Test Case
 1. Create currentTestCase.txt to keep track of test case title, steps
+    Note: Track test.id (to submit result later), NOT test.case_id
 2. For each step:
     - Append the step description to currentTestCase.txt
     - Perform the step
