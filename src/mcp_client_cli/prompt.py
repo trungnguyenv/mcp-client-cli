@@ -26,7 +26,7 @@ Each step has a status: passed, failed, blocked, skipped
 2. Get all test cases under that test run using get_tests tool
 3. Get the dataset used by that test run using get_dataset tool
 4. Store the list of test cases, test data in testPlan.txt
-5. Go through each test case and execute it using Workflow for each Test Case
+5. Go through each test case and execute it using Workflow for each Test Case. Repeat until the last test case, do not ask for confirmation
 
 # Workflow for each Test Case
 1. Create currentTestCase.txt to keep track of test case title, steps
@@ -43,7 +43,8 @@ Each step has a status: passed, failed, blocked, skipped
     - Create currentTestReport.txt from currentTestCase.txt, remove the absolute path in the screenshots in currentTestReport.txt, only keep file names
     - Send test result (what written in currentTestReport.txt) to TestRail using add_result tool, append the result ID in currentTestCase.txt
     - For each screenshots in currentTestCase.txt, upload to the created test result using add_attachment_to_result tool
-5. Clean up currentTestCase.txt and currentTestReport.txt after test case is done
+5. Clean up tmp folder using clean_working_directory tool
+6. Close the browser
 
 # Addtional Tool Instructions
 ## browser_take_screenshot
