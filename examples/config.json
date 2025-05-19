@@ -1,0 +1,58 @@
+{
+  "systemPrompt": "You are a helpful AI assistant. You help users with tasks. You can use tools to perform specific actions to help the user.",
+  "llm": {
+    "provider": "openai",
+    "model": "gpt-4.1-mini",
+    "api_key": "sk-proj-",
+    "temperature": 0.7
+  },
+  "mcpServers": {
+    "playwright": {
+      "command": "node",
+      "args": [
+        "/Users/trungnguyen/Workspace/Vibe-Testing/playwright-mcp/lib/program.js",
+        "--no-image-responses",
+        "--output-dir=/Users/trungnguyen/Workspace/Vibe-Testing/tmp"
+      ]
+    },
+    "testrail": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--directory=/Users/trungnguyen/Workspace/Vibe-Testing/testrail-mcp",
+        "testrail-mcp"
+      ],
+      "env": {
+        "TESTRAIL_URL": "https://trungnguyenv.testrail.io",
+        "TESTRAIL_USERNAME": "nguyenviettrung1995@gmail.com",
+        "TESTRAIL_API_KEY": "..."
+      }
+    },
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/Users/trungnguyen/Workspace/Vibe-Testing/tmp"
+      ]
+    },
+    "sequential-thinking": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-sequential-thinking"
+      ]
+    },
+      "tmp": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--with",
+        "mcp[cli]",
+        "mcp",
+        "run",
+        "/Users/trungnguyen/Workspace/Vibe-Testing/temp-dir-mcp/main.py"
+      ]
+    }
+  }
+}
