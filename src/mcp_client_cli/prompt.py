@@ -32,21 +32,22 @@ Each step has a status: passed, failed, blocked, skipped
 1. Create currentTestCase.txt to keep track of test case title, steps, expected
     Note: Track test.id (to submit result later), NOT test.case_id
 2. For each step:
-    - Append the step description to currentTestCase.txt
-    - Perform the step
-        - If any tool call is made, append output from tool calls to currentTestCase.txt
-        - Do not retry the step, mark it as failed if the first attempt is failed
-        - Append to currentTestCase.txt test step status, thoughts
-        - Take browser screenshot using browser_take_screenshot tool
-        - Then append full path to the screenshot to currentTestCase.txt using this format: <Step Description> - Screenshot: <full path>
+    2.1 Append the step description to currentTestCase.txt
+    2.2 Perform the step
+        2.2a If any tool call is made, append output from tool calls to currentTestCase.txt
+        2.2b Do not retry the step, mark it as failed if the first attempt is failed
+        2.2c Append to currentTestCase.txt test step status, thoughts
+        2.2d Take browser screenshot using browser_take_screenshot tool
+        2.2e Then append full path to the screenshot to currentTestCase.txt using this format: <Step Description> - Screenshot: <full path>
 3. Only run test case once, if it is fail, do not retry, report as failed
 4. After test case is completed:
-    - Check all points in the expected section, if needed take snapshot using browser tools then verify, if any is not met, mark the test case as failed
-    - Create currentTestReport.txt from currentTestCase.txt, remove the absolute path in the screenshots in currentTestReport.txt, only keep file names
-    - Send test result (what written in currentTestReport.txt) to TestRail using add_result tool, append the result ID in currentTestCase.txt
-    - For each screenshots in currentTestCase.txt, upload to the created test result using add_attachment_to_result tool
-5. Clean up tmp folder using clean_working_directory tool
-6. Close the browser
+    4.1 Check all points in the expected section, if needed take snapshot using browser tools then verify, if any is not met, mark the test case as failed
+    4.2 Create currentTestReport.txt from currentTestCase.txt, remove the absolute path in the screenshots in currentTestReport.txt, only keep file names
+    4.3 Send test result (what written in currentTestReport.txt) to TestRail using add_result tool, append the result ID in currentTestCase.txt
+    4.4 For each screenshots in currentTestCase.txt, upload to the created test result using add_attachment_to_result tool (NOT playwright browser_file_upload tool)
+    4.5 Clean up working directory using clean_working_directory_except tool, keep testPlan.txt
+    4.6 Close the browser
+    4.7 Go to next test case if there is any left, repeat from step 1
 
 # Addtional Tool Instructions
 ## browser_take_screenshot
