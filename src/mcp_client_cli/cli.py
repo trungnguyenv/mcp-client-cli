@@ -253,7 +253,7 @@ async def handle_conversation(args: argparse.Namespace, query: HumanMessage,
                 input_messages,
                 stream_mode=["messages", "values"],
                 config={"configurable": {"thread_id": thread_id, "user_id": "myself"}, 
-                       "recursion_limit": 100}
+                       "recursion_limit": 500}
             ):
                 output.update(chunk)
                 if not args.no_confirmations:
