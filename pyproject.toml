@@ -14,10 +14,10 @@ authors = [
 license = { text = "MIT" }
 dependencies = [
     "langchain-anthropic>=0.3.0",
-    "langchain>=0.3.8",
+    "langchain==0.3.8",
     "mcp>=1.6.0",
     "python-dotenv>=1.0.1",
-    "langgraph>=0.4.1",
+    "langgraph==0.4.1",
     "langchain-openai>=0.2.10",
     "langchain-google-genai>=2.0.7",
     "aiosqlite>=0.20.0",
@@ -26,7 +26,7 @@ dependencies = [
     "commentjson>=0.9.0",
     "jsonschema-pydantic>=0.6",
     "pywin32>=306; sys_platform == 'win32' or platform_system == 'Windows'",
-    "langgraph-prebuilt>=0.1.0",
+    "langgraph-prebuilt==0.1.8",
     "standard-imghdr>=3.13.0",
 ]
 classifiers = [
